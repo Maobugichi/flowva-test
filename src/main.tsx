@@ -2,14 +2,13 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
-import { Login } from "./components/auth/login";
 import Root from "./route/root";
-import { ProtectedRoute } from "./components/protectedRoute";
 import { ConfigProvider } from "antd";
-
 import ErrorPage from "./components/errorPage";
-import { RewardsHub } from "./components/rewards/rewardsTest";
+import { Login } from "./components/auth/login";
 import { Signup } from "./components/auth/signup";
+import { RewardsHub } from "./components/rewards/rewardsTest";
+
 
 
 const router = createBrowserRouter([
