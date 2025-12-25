@@ -13,9 +13,9 @@ export default function AnimatedCoinBadge() {
     if (!ctx) return;
     
     let rotation = 0;
-    const maxRotation = Math.PI * 2; // 360 degrees
+    const maxRotation = Math.PI * 2; 
 
-    // Star path points (simplified)
+
     const createStarPath = (cx: number, cy: number, spikes: number, outerRadius: number, innerRadius: number): Array<{x: number, y: number}> => {
       const points = [];
       const step = Math.PI / spikes;
@@ -40,19 +40,19 @@ export default function AnimatedCoinBadge() {
       const centerY = canvas.height / 2;
       const radius = 22;
       
-      // Calculate 3D perspective
+      
       const scaleX = Math.cos(rotation);
       
       ctx.save();
       ctx.translate(centerX, centerY);
       ctx.scale(scaleX, 1);
       
-      // Coin edge (visible when turning)
+     
       if (Math.abs(scaleX) < 0.5) {
         const edgeWidth = 4;
         const edgeDepth = 3;
         
-        // Draw edge segments for 3D effect
+     
         for (let i = -edgeDepth; i < edgeDepth; i++) {
           const brightness = 1 - Math.abs(i) / edgeDepth * 0.3;
           ctx.fillStyle = `rgb(${180 * brightness}, ${120 * brightness}, 0)`;
@@ -60,7 +60,7 @@ export default function AnimatedCoinBadge() {
         }
       }
       
-      // Outer ring (gold gradient)
+     
       const gradient = ctx.createRadialGradient(0, 0, 0, 0, 0, radius);
       gradient.addColorStop(0, '#FFEA00');
       gradient.addColorStop(0.5, '#FFC700');
@@ -71,14 +71,14 @@ export default function AnimatedCoinBadge() {
       ctx.arc(0, 0, radius, 0, Math.PI * 2);
       ctx.fill();
       
-      // Ring detail
+     
       ctx.strokeStyle = '#D49000';
       ctx.lineWidth = 0.6;
       ctx.beginPath();
       ctx.arc(0, 0, radius - 3, 0, Math.PI * 2);
       ctx.stroke();
       
-      // Inner circle
+      
       const innerGradient = ctx.createRadialGradient(0, 0, 0, 0, 0, radius - 6);
       innerGradient.addColorStop(0, '#FFE900');
       innerGradient.addColorStop(0.5, '#FFC700');
@@ -89,10 +89,10 @@ export default function AnimatedCoinBadge() {
       ctx.arc(0, 0, radius - 6, 0, Math.PI * 2);
       ctx.fill();
       
-      // Star
+      
       const starPoints = createStarPath(0, 0, 5, 13, 6);
       
-      // Star shadow for depth
+      
       ctx.fillStyle = 'rgba(204, 112, 0, 0.3)';
       ctx.beginPath();
       ctx.moveTo(starPoints[0].x, starPoints[0].y + 3);
@@ -102,7 +102,7 @@ export default function AnimatedCoinBadge() {
       ctx.closePath();
       ctx.fill();
       
-      // Star gradient
+      
       const starGradient = ctx.createLinearGradient(0, -13, 0, 13);
       starGradient.addColorStop(0, '#FFAD00');
       starGradient.addColorStop(0.5, '#FF8F00');
@@ -117,7 +117,7 @@ export default function AnimatedCoinBadge() {
       ctx.closePath();
       ctx.fill();
       
-      // Highlight
+      
       const highlightGradient = ctx.createRadialGradient(-8, -8, 0, -8, -8, 11);
       highlightGradient.addColorStop(0, 'rgba(255, 255, 255, 0.6)');
       highlightGradient.addColorStop(1, 'rgba(255, 255, 255, 0)');
@@ -129,10 +129,10 @@ export default function AnimatedCoinBadge() {
       
       ctx.restore();
       
-      // Update rotation
+      
       rotation += 0.05;
       
-      // Stop after one full rotation
+      
       if (rotation < maxRotation) {
         animationId = requestAnimationFrame(drawCoin);
       } else {
@@ -140,7 +140,7 @@ export default function AnimatedCoinBadge() {
       }
     };
 
-    // Intersection Observer to detect when component is in view
+   
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {

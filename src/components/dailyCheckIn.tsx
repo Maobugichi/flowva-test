@@ -3,12 +3,13 @@ import { useAuth } from '../hooks/useAuth';
 import { Slate } from './slate';
 import { useCheckIn } from '../hooks/useCheckIn';
 import { getTodayIndex, isDayCheckedIn } from '../utils/checkInHelpers';
+import { ConfettiModal } from './common/confettiModal';
 
 const DAYS = ["M", "T", "W", "T", "F", "S", "S"];
 
 export const DailyCheckIn = () => {
   const { user, isInitialized } = useAuth();
-  const { currentStreak, hasCheckedInToday, loading, checkIns, claimPoints } = useCheckIn();
+  const { currentStreak, hasCheckedInToday, loading, checkIns, claimPoints , showModal , setShowModal, points } = useCheckIn();
   const todayIndex = getTodayIndex();
 
   if (!isInitialized) {
@@ -61,6 +62,12 @@ export const DailyCheckIn = () => {
           ? 'Claimed Today'
           : 'Claim Today\'s Points'}
       </button>
+       <ConfettiModal
+          isOpen={showModal}
+          onClose={() => setShowModal(false)}
+          title="Level Up!🎉"
+          message={`+${points} Points`}
+        />
     </div>
   );
 };

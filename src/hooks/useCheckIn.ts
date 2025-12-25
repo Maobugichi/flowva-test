@@ -14,6 +14,8 @@ export const useCheckIn = () => {
   const [hasCheckedInToday, setHasCheckedInToday] = useState(false);
   const [loading, setLoading] = useState(false);
   const [checkIns, setCheckIns] = useState<CheckIn[]>([]);
+  const [showModal, setShowModal] = useState(false);
+  const [ points , setPoints ] = useState<number>(0)
 
   useEffect(() => {
     if (user?.id) {
@@ -39,7 +41,8 @@ export const useCheckIn = () => {
       await loadUserData(user.id);
       await refreshPoints();
       
-      alert(`🎉 +${pointsAdded} points claimed!`);
+      setShowModal(true);
+      setPoints(pointsAdded)
     } catch (error: any) {
       console.error('Error claiming points:', error);
       
@@ -59,5 +62,8 @@ export const useCheckIn = () => {
     loading,
     checkIns,
     claimPoints,
+    showModal,
+    setShowModal,
+    points
   };
 };

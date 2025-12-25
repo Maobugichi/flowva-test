@@ -7,7 +7,8 @@ import { ConfigProvider } from "antd";
 import ErrorPage from "./components/errorPage";
 import { Login } from "./components/auth/login";
 import { Signup } from "./components/auth/signup";
-import { RewardsHub } from "./components/rewards/rewardsTest";
+import { RewardsHub } from "./components/rewards/rewardsHub";
+import { ProtectedRoute } from "./components/protectedRoute";
 
 
 
@@ -22,8 +23,12 @@ const router = createBrowserRouter([
   },
   {
     path:'/',
-    element: 
-        <Root />,
+    element:(
+      <ProtectedRoute>
+          <Root />
+      </ProtectedRoute>
+    ) 
+       ,
     errorElement:<ErrorPage/>,
     children: [
       {
