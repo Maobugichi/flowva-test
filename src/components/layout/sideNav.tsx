@@ -119,7 +119,7 @@ export const SideNav = () => {
                         </div>
                     </div>
                 </div>
-            </aside>
+            </aside
         </>
     );
 };
