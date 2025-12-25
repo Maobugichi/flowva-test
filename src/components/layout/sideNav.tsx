@@ -57,7 +57,7 @@ export const SideNav = () => {
                 fixed md:static
                 top-0 left-0 bottom-0
                 w-64 
-                h-[100dvh] md:h-screen
+                h-full
                 shadow-md 
                 border-r border-black/10 
                 text-black 
@@ -71,7 +71,7 @@ export const SideNav = () => {
             `}>
                 <div className="flex flex-col h-full">
                    
-                    <div className="md:hidden flex justify-between relative py-3 px-2 items-center flex-shrink-0">
+                    <div className="md:hidden flex justify-between relative py-3 px-2 items-center shrink-0">
                         <div className="my-0 p-0 md:p-2 px-7 flex justify-start">
                             <img src={logo} loading="eager" alt="Flowva Logo" className="h-15" />  
                         </div>
@@ -83,7 +83,7 @@ export const SideNav = () => {
                         </button>
                          
                     </div>
-                    <div className="p-2 px-7 hidden my-2 md:flex justify-start flex-shrink-0">
+                    <div className="p-2 px-7 hidden my-2 md:flex justify-start shrink-0">
                         <img src={logo} loading="eager" alt="Flowva Logo" className="h-15" />  
                     </div>
                    
@@ -102,7 +102,7 @@ export const SideNav = () => {
                         </ul>
                     </nav>
                     
-                    <div className="py-3 relative flex justify-center flex-shrink-0">
+                    <div className="py-3 relative flex justify-center shrink-0">
                         <div className="absolute top-0 left-4 right-4 border-t border-[#64748B]"></div>
                         <div className="w-full flex items-center justify-between px-4">
                             <button className="flex items-center border-none">
