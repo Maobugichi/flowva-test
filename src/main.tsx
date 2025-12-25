@@ -32,7 +32,32 @@ const router = createBrowserRouter([
     errorElement:<ErrorPage/>,
     children: [
       {
+        
+        path:'home',
+        element:<RewardsHub/>
+      },
+      {
+        path:'discover',
+        element:<RewardsHub/>
+      },
+      {
+        path:'library',
+        element:<RewardsHub/>
+      },
+      {
+        path:'tech-stack',
+        element:<RewardsHub/>
+      },
+      {
+        path:'subscriptions',
+        element:<RewardsHub/>
+      },
+      {
         path:'rewards',
+        element:<RewardsHub/>
+      },
+      {
+        path:'settings',
         element:<RewardsHub/>
       }
     ]
