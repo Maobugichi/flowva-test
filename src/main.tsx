@@ -33,7 +33,7 @@ const router = createBrowserRouter([
     children: [
       {
         
-        path:'home',
+        path:'/',
         element:<RewardsHub/>
       },
       {
