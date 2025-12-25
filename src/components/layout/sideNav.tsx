@@ -43,10 +43,10 @@ export const SideNav = () => {
     }, [isOpen]);
 
     return (
-        <div className="flex flex-col md:flex-row min-h-dvh lg:screen lg:md:overflow-hidden w-full">
+        <>
            
             <div 
-                className={`fixed inset-0 bg-black/50 z-30 md:hidden transition-opacity duration-300 ${
+                className={`fixed inset-0 bg-black/50 z-40 md:hidden transition-opacity duration-300 ${
                     isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
                 }`}
                 onClick={closeSidebar}
@@ -54,10 +54,10 @@ export const SideNav = () => {
 
           
             <aside className={`
-                fixed 
+                fixed md:static
                 top-0 left-0 bottom-0
                 w-64 
-                h-full
+                h-[100dvh] md:h-screen
                 shadow-md 
                 border-r border-black/10 
                 text-black 
@@ -69,26 +69,26 @@ export const SideNav = () => {
                 flex flex-col
                 ${isOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'}
             `}>
-                <div className="flex flex-col space-y-6 md:space-y-0 h-full">
+                <div className="flex flex-col h-full">
                    
-                    <div className="md:hidden  flex justify-between relative py-3  px-2 items-center">
-                        <div className="my-0 p-0 md:p-2 px-7   flex justify-start">
+                    <div className="md:hidden flex justify-between relative py-3 px-2 items-center flex-shrink-0">
+                        <div className="my-0 p-0 md:p-2 px-7 flex justify-start">
                             <img src={logo} loading="eager" alt="Flowva Logo" className="h-15" />  
                         </div>
                         <button 
                             onClick={closeSidebar}
-                            className=" hover:bg-gray-100 absolute right-3 top-3 rounded-full transition-colors"
+                            className="hover:bg-gray-100 absolute right-3 top-3 rounded-full transition-colors"
                         >
                             <X className="h-6 w-6 text-gray-600" />
                         </button>
                          
                     </div>
-                    <div className="p-2 px-7 hidden  my-2 md:flex justify-start">
+                    <div className="p-2 px-7 hidden my-2 md:flex justify-start flex-shrink-0">
                         <img src={logo} loading="eager" alt="Flowva Logo" className="h-15" />  
                     </div>
                    
                     
-                    <nav className="grow px-4 overflow-y-auto">
+                    <nav className="flex-1 px-4 overflow-y-auto min-h-0">
                         <ul>
                             {navItems.map((item) => (
                                 <ListItem 
@@ -102,16 +102,16 @@ export const SideNav = () => {
                         </ul>
                     </nav>
                     
-                    <div className="py-3  relative  flex justify-center">
+                    <div className="py-3 relative flex justify-center flex-shrink-0">
                         <div className="absolute top-0 left-4 right-4 border-t border-[#64748B]"></div>
-                        <div className="w-full flex items-center justify-between  px-4">
+                        <div className="w-full flex items-center justify-between px-4">
                             <button className="flex items-center border-none">
                                 <div className="w-10 h-10 relative overflow-hidden rounded-full font-semibold mr-3 flex items-center justify-center text-[#9013FE] bg-[#E9D4FF]">
                                     <p className="font-semibold">M</p>
                                 </div>
-                                <div className="text-start">
-                                    <span className="text-[0.9rem] font-semibold">Mob</span>
-                                    <p className="text-[0.8rem] text-[#718096] truncate overflow-x-hidden max-w-38.5">
+                                <div className="text-start min-w-0 flex-1">
+                                    <span className="text-[0.9rem] font-semibold block">Mob</span>
+                                    <p className="text-[0.8rem] text-[#718096] truncate">
                                         {email}
                                     </p>
                                 </div>
@@ -120,6 +120,6 @@ export const SideNav = () => {
                     </div>
                 </div>
             </aside>
-        </div>
+        </>
     );
 };
