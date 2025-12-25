@@ -112,7 +112,7 @@ export const SideNav = () => {
                                 <div className="text-start min-w-0 flex-1">
                                     <span className="text-[0.9rem] font-semibold block">Mob</span>
                                     <p className="text-[0.8rem] text-[#718096] truncate">
-                                        {email}
+                                        {email?.split('.')[0]}
                                     </p>
                                 </div>
                             </button>
