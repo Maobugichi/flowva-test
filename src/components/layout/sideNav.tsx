@@ -6,6 +6,7 @@ import { supabase } from "../../lib/supabase";
 import { ListItem } from "../listItem";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useSidebar } from "../../context/sidebarContext";
+import { emailNav } from "../components/emailNav";
 
 
 export const SideNav = () => {
