@@ -1,9 +1,7 @@
 ## Setup Instructions
 
 ### Prerequisites
-This project is built with modern React tooling. Make sure you have the following installed:
-
-- Node.js (v18+ recommended)
+This project is built with modern React tooling.
 - npm
 - React 19
 - React Router
