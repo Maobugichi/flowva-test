@@ -8,7 +8,7 @@ import ErrorPage from "./components/errorPage";
 import { Login } from "./components/auth/login";
 import { Signup } from "./components/auth/signup";
 import { RewardsHub } from "./components/rewards/rewardsHub";
-import { ProtectedRou } from "./components/protectedRoute";
+import { ProtectedRoute } from "./components/protectzx";
 
 
 
